@@ -7,8 +7,14 @@ import rootReducer from './reducers/rootReducer';
 import AddCity from './containers/AddCity'
 import CitiesList from './containers/CitiesList'
 import './index.css';
+import {loadState ,saveState} from './localStorage'
 
-const store = createStore(rootReducer,applyMiddleware(thunk));
+const persistedState = loadState();
+const store = createStore(rootReducer,persistedState,applyMiddleware(thunk));
+
+store.subscribe(()=> {
+    saveState(store.getState());
+})
 
 class App extends Component {
     render() {
@@ -27,7 +33,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-
 
 
 

@@ -1,12 +1,14 @@
+import { v4 } from 'node-uuid'
+
 export const ADD_CITY = 'ADD_CITY';
 export const DELETE_CITY = 'DELETE_CITY';
 
-export let nextTodoId = 0;
+// export let nextTodoId = 0; nextTodoId++,
 
 export const addCity = (city) => {
     return {
         type: ADD_CITY,
-        id: nextTodoId++,
+        id: v4(),
         value: city,
         status: false
     }
@@ -34,6 +36,7 @@ export const addCityTemp = (city) =>
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log(result);
                     const temperature = Math.round((result.main.temp - 273.15) * 100) / 100;
                     const status = true;
                     const name = result.name;

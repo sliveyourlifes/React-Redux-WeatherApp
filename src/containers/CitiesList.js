@@ -7,15 +7,17 @@ import {deleteCity} from '../actions/actionCreators';
 class CitiesList extends Component {
     render() {
         return (
-            <ul>
-                {this.props.cities.map(city =>
-                    <CityValue
-                        key={city.id}
-                        {...city}
-                        delete={()=> this.props.deleteCity(city.name)}
-                    />
-                )}
-            </ul>
+            <div className='list-wrapper'>
+                <ul className='list-block'>
+                    {this.props.cities.map(city =>
+                        <CityValue
+                            key={city.id}
+                            {...city}
+                            delete={()=> this.props.deleteCity(city.name)}
+                        />
+                    )}
+                </ul>
+            </div>
         )
     }
 }

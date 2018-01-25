@@ -15,20 +15,22 @@ class AddCity extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form-block">
                 <input className="input"
                        type="text"
                        placeholder="Enter City"
                        onChange={this.handleChange}
                        value={this.state.value}
                 />
-                <button onClick={()=> {
+                <button
+                className='button'
+                onClick={()=> {
                     return (
                         this.props.addCityTemp(this.state.value),
                             this.setState({value: ''})
                     )
                 }}>
-                    Add City
+                   Submit
                 </button>
             </div>
         )

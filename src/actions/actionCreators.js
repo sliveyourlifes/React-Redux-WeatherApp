@@ -14,12 +14,14 @@ export const addCity = (city) => {
     }
 };
 
-export const itemsFetchDataSuccess = (temperature,status,name) => {
+export const itemsFetchDataSuccess = (temperature,status,name,pressure,wind_speed) => {
     return {
         type: 'CITY_FETCH_TEMP_SUCCESS',
         temperature:temperature,
         status:status,
-        name:name
+        name:name,
+        pressure:pressure,
+        wind_speed:wind_speed
     };
 };
 
@@ -39,8 +41,10 @@ export const addCityTemp = (city) =>
                     console.log(result);
                     const temperature = Math.round((result.main.temp - 273.15));
                     const status = true;
+                    const pressure = result.main.pressure;
+                    const wind_speed = result.wind.speed;              
                     const name = result.name;
-                    dispatch(itemsFetchDataSuccess(temperature,status,name))
+                    dispatch(itemsFetchDataSuccess(temperature,status,name,pressure,wind_speed))
                 })
 
     }

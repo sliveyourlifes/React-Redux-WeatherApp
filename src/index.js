@@ -20,7 +20,7 @@ class App extends Component {
     render() {
         return (
             <div className='main-wrapper'>
-            <h1>Weather in your city</h1>
+            <h1 className='title'>Weather in your city</h1>
                 <AddCity/>
                 <CitiesList/>
             </div>

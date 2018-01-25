@@ -16,7 +16,7 @@
                 return false;
             });
             const newState = [...state];
-            newState[index] = {...state[index], temperature: action.temperature, status: action.status};
+            newState[index] = {...state[index], temperature: action.temperature, status: action.status, pressure: action.pressure, wind:action.wind_speed};
             return newState;
         case "DELETE_CITY" :
             let ind = state.findIndex((item)=> {

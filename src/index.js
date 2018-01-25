@@ -6,8 +6,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
 import AddCity from './containers/AddCity'
 import CitiesList from './containers/CitiesList'
-import './index.css';
 import {loadState ,saveState} from './localStorage'
+import './styles/index.css';
 
 const persistedState = loadState();
 const store = createStore(rootReducer,persistedState,applyMiddleware(thunk));
@@ -19,7 +19,8 @@ store.subscribe(()=> {
 class App extends Component {
     render() {
         return (
-            <div className='test'>
+            <div className='main-wrapper'>
+            <h1>Weather in your city</h1>
                 <AddCity/>
                 <CitiesList/>
             </div>
@@ -33,6 +34,7 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
+
 
 
 

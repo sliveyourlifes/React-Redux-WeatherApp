@@ -37,7 +37,7 @@ export const addCityTemp = (city) =>
             .then(
                 (result) => {
                     console.log(result);
-                    const temperature = Math.round((result.main.temp - 273.15) * 100) / 100;
+                    const temperature = Math.round((result.main.temp - 273.15));
                     const status = true;
                     const name = result.name;
                     dispatch(itemsFetchDataSuccess(temperature,status,name))

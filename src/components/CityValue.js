@@ -9,7 +9,7 @@ class CityValue extends Component {
                 <span className={this.props.status ? '' : 'none'}>°С</span>
                 <span className="button"
                       onClick={this.props.delete}
-                >{this.props.status ? 'delete' : ''}</span>
+                >{this.props.status ? 'X' : ''}</span>
             </li>
         )
     }
